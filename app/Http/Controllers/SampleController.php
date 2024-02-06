@@ -24,7 +24,9 @@ class SampleController extends Controller
                 $samples->getCollection()->transform(function ($sample) {
                     $sample->isLikedByCurrentUser = $sample->isLikedByCurrentUser();
                     return $sample;
-                });               
+                });   
+                
+                
     
         return response()->json([
             'total' => $samples->total(), // Total number of samples

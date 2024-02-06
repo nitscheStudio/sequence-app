@@ -102,6 +102,9 @@ return [
     'cymbals',
     'crash',
     'juno',
+    'bass',
+    'bass guitar',
+    
   ],
 
   'type' => [

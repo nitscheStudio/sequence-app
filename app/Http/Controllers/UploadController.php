@@ -17,11 +17,13 @@ use App\Models\sample\Tag;
 class UploadController extends Controller
 {
     public function __invoke(Request $request)
+
     {   
-    
+        Log::info('Upload request:', $request->all());
+
         
         $rules = ([
-            'title' => ['required', 'string', 'max:120'],
+            'title' => ['required', 'string', 'max:120', 'min:8'],
             'bpm' => ['required', 'integer', 'between:40,240'],
             'key' => ['required', Rule::in(config('sampleSelections.key'))],
             'scale' => ['required', Rule::in(config('sampleSelections.scale'))],
@@ -36,7 +38,7 @@ class UploadController extends Controller
                 'required',
                 'file',
                 File::types(['mp3', 'wav'])
-                    ->min(128) 
+                    ->min(60) 
                     ->max(20480) 
             ],
         ]);
@@ -47,6 +49,8 @@ class UploadController extends Controller
 
         if ($validation->fails()) {
             return response()->json(['errors' => $validation->errors()], 400);
+            Log::error('Upload validation failed:', $validation->errors()->all());
+
         }
 
         // Try to upload the sample
@@ -81,9 +85,13 @@ class UploadController extends Controller
                 $tagIds = [];  // To collect ids of tags
         
                 foreach ($request->input('tags', []) as $tagName) {
+
+                Log::info('Original tag name:', [$tagName]);
+
                     // Trim, convert to lowercase, and strip any tags
-                    $sanitizedTagName = strip_tags(trim(strtolower($tagName)));
-        
+                    $sanitizedTagName = strip_tags(trim($tagName));
+                    Log::info('Sanitized tag name:', [$sanitizedTagName]);
+
                     if(!empty($sanitizedTagName)) {
                         $tag = Tag::firstOrCreate(['name' => $sanitizedTagName]); 
                         $tagIds[] = $tag->id;

@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('sample_tag', function (Blueprint $table) {
-            $table->id();
+            $table->id()->first();
         });
     }
 };

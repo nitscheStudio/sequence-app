@@ -9,17 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::table('instruments', function (Blueprint $table) {
-            $table->renameColumn('instruments', 'name');
+            $table->renameColumn('instrument', 'name');
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::table('instruments', function (Blueprint $table) {
             $table->renameColumn('name', 'instrument');

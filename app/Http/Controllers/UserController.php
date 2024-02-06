@@ -114,22 +114,26 @@ class UserController extends Controller
     
     public function updateProfilePicture(Request $request)
     {  
-
+        Log::info($request->all());
         $rules = [
             'profile_picture' => [
                 'required',
                 'image',
                 'mimes:jpg,jpeg,png',
-                'max:2048' // 2MB Max
+                'max:4096' // 4MB Max
             ],
         ];
+        
 
         $validation = Validator::make($request->all(), $rules);
         $user = $request->user(); 
+        Log::info($user);
+
         
         if($validation->fails()) {
             return response()->json(['errors' => $validation->errors()], 400);
         }
+        
         
         
         if ($request->hasFile('profile_picture')) {
