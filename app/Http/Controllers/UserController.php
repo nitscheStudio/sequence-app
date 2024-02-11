@@ -119,7 +119,7 @@ class UserController extends Controller
             'profile_picture' => [
                 'required',
                 'image',
-                'mimes:jpg,jpeg,png',
+                'mimes:jpg,jpeg,png, webp',
                 'max:4096' // 4MB Max
             ],
         ];

@@ -14,21 +14,20 @@ use App\Http\Controllers\GenreController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\InstrumentController;
 use App\Http\Controllers\TagController;
+use App\Http\Controllers\SearchController;
 
 // Public routes (not protected)
 // Route::post('/register', RegisterController::class);
 Route::post('/login', LoginController::class);
 Route::get('/samples', [SampleController::class, 'listSamples']);
 Route::get('/sample/{id}', [SampleController::class, 'getSampleById']);
-// Route::get('/samples/search', [SampleController::class, 'search']);
-
-
-
-
+// Route::get('search', [SearchController::class, 'checkFilterableAttributes']);
 // Protected Routes
 
 // Route::middleware(['auth:sanctum'])->group(function() {
     //User-related routes
+
+Route::post('/search', [SearchController::class, 'fetchAllFromIndex']);
 
 
 Route::post('/logout', LogoutController::class);
