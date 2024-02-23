@@ -32,8 +32,12 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $user = Auth::user();
 
+            $userWithSamplesCount = User::where('id', $user->id)
+            ->withCount('samples as samplesCount') // Assuming the relationship is named 'samples'
+            ->first();
+
             return response()->json([
-                'user' => $user,
+                'user' => $userWithSamplesCount,
                 'message' => 'Login successful'
             ], 200);
         }

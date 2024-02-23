@@ -24,38 +24,38 @@ Route::get('/sample/{id}', [SampleController::class, 'getSampleById']);
 // Route::get('search', [SearchController::class, 'checkFilterableAttributes']);
 // Protected Routes
 
-// Route::middleware(['auth:sanctum'])->group(function() {
+Route::middleware(['auth:sanctum'])->group(function() {
     //User-related routes
+    Route::get('/user', [UserController::class, 'getUserDetails']);
+    Route::get('/user/likedSamples', [UserController::class, 'getLikedSamples']);
+    Route::delete('/user/{userId}/delete', [UserController::class, 'deleteUser']);
 
-Route::post('/search', [SearchController::class, 'fetchAllFromIndex']);
+    Route::post('/search', [SearchController::class, 'getIndex']);
 
 
-Route::post('/logout', LogoutController::class);
+    Route::post('/logout', LogoutController::class);
 
-Route::get('/user/{userId?}/liked-samples/',  [UserController::class, 'showLikedSamples']);
-Route::get('/user/{userId}/uploaded-samples', [UserController::class, 'showUploadedSamples']);
+    Route::get('/user/{userId?}/liked-samples/',  [UserController::class, 'showLikedSamples']);
+    Route::get('/user/{userId}/uploaded-samples', [UserController::class, 'showUploadedSamples']);
 
-Route::get('/user/{username}',[UserController::class, 'getByUsername']);
-Route::post('/user/edit/profilePicture', [UserController::class, 'updateProfilePicture']);
-Route::patch('/user/edit/togglePrivateProfile', [UserController::class, 'togglePrivateProfile']);
-Route::post('/user/edit/updateBio', [UserController::class, 'updateBio']);
+    Route::get('/user/{username}',[UserController::class, 'getByUsername']);
+    Route::post('/user/edit/profilePicture', [UserController::class, 'updateProfilePicture']);
+    Route::patch('/user/edit/togglePrivateProfile', [UserController::class, 'togglePrivateProfile']);
+    Route::post('/user/edit/updateBio', [UserController::class, 'updateBio']);
 
-// Sample-related routes
-Route::post('/uploadSample', UploadController::class);
-Route::get('/sample/download/{id}', DownloadController::class)->middleware('web');
-Route::patch('/sample/edit/{id}', [SampleController::class, 'editSample']);
-Route::delete('/sample/delete/{sampleId}', [SampleController::class, 'deleteSample']);
-Route::get('/genres', GenreController::class);
-Route::get('/instruments', InstrumentController::class);
-route::get('/samples/tags', [TagController::class, 'getAllTags']);
+    // Sample-related routes
+    Route::post('/uploadSample', UploadController::class);
+    Route::get('/sample/download/{id}', DownloadController::class)->middleware('web');
+    Route::patch('/sample/edit/{id}', [SampleController::class, 'editSample']);
+    Route::delete('/sample/delete/{sampleId}', [SampleController::class, 'deleteSample']);
+    Route::get('/genres', GenreController::class);
+    Route::get('/instruments', InstrumentController::class);
+    route::get('/samples/tags', [TagController::class, 'getAllTags']);
 
-// Like-related routes
-Route::post('/sample/{id}/like', [LikeController::class, 'toggleLikeSample']);
-// });
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+    // Like-related routes
+    Route::post('/sample/{id}/like', [LikeController::class, 'toggleLikeSample']);
 });
+
 
 
 

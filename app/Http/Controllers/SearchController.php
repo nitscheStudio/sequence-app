@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use MeiliSearch\Client;
 use Illuminate\Support\Facades\Log;
+use App\Models\Sample\Sample;
 
 class SearchController extends Controller
 {
+
     public function search(Request $request)
     {
         Log::info('Search request received', $request->all());
@@ -68,11 +70,30 @@ class SearchController extends Controller
         }
     }
 
+    public function getIndex()
+    {
+
+        $client = new Client(config('meilisearch.host'), config('meilisearch.key'));
+        $indexName = 'your_index_name';
+
+        try {
+            $index = $client->getIndex($indexName); // Attempt to get the index
+            // If successful, the index exists
+            Log::info('Index exists', $index);
+        } catch (\MeiliSearch\Exceptions\ApiException $e) {
+            // If an ApiException is caught, the index does not exist
+            echo "Index does not exist";
+            Log::info('Index does not exists');
+        }
+
+
+    }
+
     public function fetchAllFromIndex(Request $request)
 {
     Log::info('Fetch all request received');
     try {
-        $client = new Client('host.docker.internal:7700/', 'masterKey');
+        $client = new Client('http://meilisearch:7700/', 'masterKey');
         $index = $client->index('samples_index');   
         
 
@@ -80,7 +101,7 @@ class SearchController extends Controller
             'limit' => 20 
         ];
         
-        $results = $index->search('', $searchOptions);
+        $results = $index->search('');
         Log::info('MeiliSearch fetch all response:', ['response' => json_decode(json_encode($results), true)]);
         
         return response()->json($results);

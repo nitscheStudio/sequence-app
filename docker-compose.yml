@@ -76,7 +76,7 @@ services:
         volumes:
             - "sail-meilisearch:/meili_data"
         networks:
-            - sail
+            - sail  
         healthcheck:
             test:
                 - CMD

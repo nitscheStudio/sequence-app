@@ -52,7 +52,7 @@ class UploadController extends Controller
             Log::error('Upload validation failed:', $validation->errors()->all());
 
         }
-
+ 
         // Try to upload the sample
         try {
             if ($request->hasFile('sample_file')) {

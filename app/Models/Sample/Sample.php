@@ -33,6 +33,11 @@ class Sample extends Model
         return $this->user->profile_picture_path;
     }
     
+    public function likers()
+    {
+        return $this->belongsToMany(User::class, 'likes', 'sample_id', 'user_id')->withTimestamps();
+    }
+    
 
     public function genre()
     {
@@ -91,6 +96,7 @@ class Sample extends Model
                 'name' => $tag->name // Include tag name
             ];
         })->toArray();
+
     
         // Include file_path
         $array['file_path'] = $this->file_path;

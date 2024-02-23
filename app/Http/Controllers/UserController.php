@@ -59,8 +59,6 @@ class UserController extends Controller
             'pages' => $likedSamples->lastPage(), // Total number of pages
             'samples' => $likedSamples->items() // The samples for the current page
         ]);
-
-     
     }
 
     public function showUploadedSamples(Request $request, $userId = null)
@@ -153,7 +151,7 @@ class UserController extends Controller
                 $user->profile_picture_path = $path;
                 $user->save();
     
-                return response()->json(['message' => 'Profile picture successfully updated.']);
+                return response()->json(['message' => 'Profile picture successfully updated.', 'path' => $path]);
             } catch (\Exception $e) {
                 Log::error('Failed to update profile picture for user: ' . $user->id, ['error' => $e->getMessage()]);
                 return response()->json(['message' => 'An error occurred while uploading the profile picture.'], 500);
@@ -175,4 +173,62 @@ class UserController extends Controller
         return response()->json(['message' => 'You successfully updated your bio'], 200);
 
     }
+
+    public function getUserDetails(Request $request)
+    {
+        $user = $request->user();
+
+        $samplesCount = $user->samples()->count();
+    
+        // Return the user data along with the new fields
+        return response()->json([
+            'id' => $user->id,
+            'username' => $user->username,
+            'email' => $user->email, // Assuming you want to include the email
+            'is_private' => $user->is_private,
+            'profile_picture_path' => $user->profile_picture_path,
+            'samplesCount' => $samplesCount,
+    
+            // Add any other fields as needed
+        ]);
+    }
+
+    public function deleteUser(Request $request)
+    {
+        $user = $request->user();
+        try {
+            //Explicitly delete Samples
+            $user->samples->each(function($sample) {
+                $sample->delete(); 
+            });
+            // Delete the user
+            $result = $user->delete();
+    
+            // Check if the deletion was successful
+            if ($result) {
+                return response()->json(['message' => 'User deleted successfully.'], 200);
+            } else {
+                return response()->json(['message' => 'Failed to delete the user.'], 500);
+            }
+        } catch (\Exception $e) {
+            // Return an error response in case of exception
+            return response()->json(['message' => 'An error occurred while deleting the user.', 'error' => $e->getMessage()], 500);
+        }
+
+    }
+
+    public function getLikedSamples(Request $request) {
+        if (Auth::check()) {
+            $userId = Auth::id();
+            $user = User::find($userId);
+    
+            // Fetch IDs of samples liked by the current user
+            $likedSampleIds = $user->likedSamples()->pluck('samples.id');
+            return response()->json($likedSampleIds);
+        }
+    
+        // Handle the case where the user is not authenticated
+        return response()->json(['error' => 'User not authenticated'], 401);
+    }
+
 }
