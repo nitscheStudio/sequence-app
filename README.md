@@ -1,6 +1,6 @@
 # Sequence App Backend
 
-The backend of the Sequence App powers the online sample library for music producers, handling sample uploads, likes, filtering, and downloads.
+The backend of the Sequence App powers the online sample library for music producers, handling sample uploads, likes, users and downloads.
 
 ## Getting Started
 
