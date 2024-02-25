@@ -48,10 +48,11 @@ If you prefer to start with a pre-populated database, a dump file is included in
 
 2. Import the dump file into your MySQL database using the following command:
 
-Replace "your-mysql-container-name" with your actual container name.
+    Replace `<mysql-container-name>`, `<user>`, `<password>`, and `<database_name>` with your actual MySQL container name and credentials.
 
 ```bash
-docker exec -i [your-mysql-container-name] mysql -u[sail] -p[password] [sequence_app] < /app/database./dumps/sequence_app2024-02-25.sql
+docker exec -i <mysql-container-name> mysql -u<user> -p<password> <database_name> < /app/database/dumps/sequence_app_2024-02-25.sql
+
 ```
 
 ## Usage
