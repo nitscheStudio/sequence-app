@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 8.0.32)
 # Database: sequence_app
-# Generation Time: 2024-02-25 14:24:28 +0000
+# Generation Time: 2024-02-25 17:48:45 +0000
 # ************************************************************
 
 
@@ -196,26 +196,7 @@ LOCK TABLES `likes` WRITE;
 
 INSERT INTO `likes` (`id`, `user_id`, `sample_id`, `created_at`, `updated_at`)
 VALUES
-	(1,1,8,'2024-02-01 16:47:09','2024-02-01 16:47:09'),
-	(2,1,6,'2024-02-01 16:47:10','2024-02-01 16:47:10'),
-	(3,1,5,'2024-02-04 20:05:55','2024-02-04 20:05:55'),
-	(9,5,8,'2024-02-06 08:31:21','2024-02-06 08:31:21'),
-	(10,5,10,'2024-02-06 08:31:23','2024-02-06 08:31:23'),
-	(11,5,11,'2024-02-06 08:31:25','2024-02-06 08:31:25'),
-	(12,5,14,'2024-02-06 08:31:25','2024-02-06 08:31:25'),
-	(13,5,17,'2024-02-06 08:31:28','2024-02-06 08:31:28'),
-	(20,1,2,'2024-02-08 14:45:25','2024-02-08 14:45:25'),
-	(22,2,22,'2024-02-12 19:58:05','2024-02-12 19:58:05'),
-	(23,6,26,'2024-02-13 13:43:24','2024-02-13 13:43:24'),
-	(25,6,22,'2024-02-13 13:43:27','2024-02-13 13:43:27'),
-	(26,6,29,'2024-02-13 21:02:34','2024-02-13 21:02:34'),
-	(28,1,11,'2024-02-16 17:40:00','2024-02-16 17:40:00'),
-	(29,1,32,'2024-02-19 20:49:31','2024-02-19 20:49:31'),
-	(31,2,33,'2024-02-20 16:11:47','2024-02-20 16:11:47'),
-	(32,2,29,'2024-02-20 16:11:48','2024-02-20 16:11:48'),
-	(33,1,31,'2024-02-21 16:08:20','2024-02-21 16:08:20'),
-	(35,1,29,'2024-02-21 21:24:43','2024-02-21 21:24:43'),
-	(40,1,21,'2024-02-22 09:09:24','2024-02-22 09:09:24');
+	(48,1,49,'2024-02-25 16:48:03','2024-02-25 16:48:03');
 
 /*!40000 ALTER TABLE `likes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -318,48 +299,17 @@ LOCK TABLES `sample_tag` WRITE;
 
 INSERT INTO `sample_tag` (`sample_id`, `tag_id`, `created_at`, `updated_at`)
 VALUES
-	(8,14,NULL,NULL),
-	(8,30,NULL,NULL),
-	(9,14,NULL,NULL),
-	(9,28,NULL,NULL),
-	(10,13,NULL,NULL),
-	(10,23,NULL,NULL),
-	(10,27,NULL,NULL),
-	(11,26,NULL,NULL),
-	(11,18,NULL,NULL),
-	(11,6,NULL,NULL),
-	(14,5,NULL,NULL),
-	(14,20,NULL,NULL),
-	(15,37,NULL,NULL),
-	(15,4,NULL,NULL),
-	(16,22,NULL,NULL),
-	(16,27,NULL,NULL),
-	(17,17,NULL,NULL),
-	(17,38,NULL,NULL),
-	(17,28,NULL,NULL),
-	(18,22,NULL,NULL),
-	(18,9,NULL,NULL),
-	(18,39,NULL,NULL),
-	(19,14,NULL,NULL),
-	(19,30,NULL,NULL),
-	(20,28,NULL,NULL),
-	(20,23,NULL,NULL),
-	(21,21,NULL,NULL),
-	(21,17,NULL,NULL),
-	(22,4,NULL,NULL),
-	(26,12,NULL,NULL),
-	(28,13,NULL,NULL),
-	(29,3,NULL,NULL),
-	(29,28,NULL,NULL),
-	(29,36,NULL,NULL),
-	(31,26,NULL,NULL),
-	(32,4,NULL,NULL),
-	(32,27,NULL,NULL),
-	(32,26,NULL,NULL),
-	(33,18,NULL,NULL),
-	(35,29,NULL,NULL),
-	(36,21,NULL,NULL),
-	(36,15,NULL,NULL);
+	(46,29,NULL,NULL),
+	(46,30,NULL,NULL),
+	(47,22,NULL,NULL),
+	(48,14,NULL,NULL),
+	(48,23,NULL,NULL),
+	(48,39,NULL,NULL),
+	(49,21,NULL,NULL),
+	(50,6,NULL,NULL),
+	(51,31,NULL,NULL),
+	(51,36,NULL,NULL),
+	(51,22,NULL,NULL);
 
 /*!40000 ALTER TABLE `sample_tag` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -397,31 +347,12 @@ LOCK TABLES `samples` WRITE;
 
 INSERT INTO `samples` (`id`, `title`, `bpm`, `key`, `scale`, `type`, `genre_id`, `instrument_id`, `file_path`, `user_id`, `created_at`, `updated_at`)
 VALUES
-	(2,'Tin Loop Dark Guitar',140,'D','minor',NULL,3,2,'samples/28382f1f-3982-403e-991a-932c697596c1_wav',1,'2024-02-01 15:14:51','2024-02-01 15:14:51'),
-	(4,'gerfgedf',120,'C#','major',NULL,24,3,'samples/2642c6b7-c82d-4048-b0cf-f7bbd675f95b_wav',1,'2024-02-01 16:07:19','2024-02-01 16:07:19'),
-	(5,'dsfads',40,'C','minor',NULL,14,2,'samples/04e4e65c-994d-4e84-89af-87b5cb7e7c6a_wav',1,'2024-02-01 16:11:39','2024-02-01 16:11:39'),
-	(6,'Drum Loop',115,'C#','major',NULL,27,1,'samples/039bb0ab-3cd5-4556-a5cc-9d0afd24f5b1_wav',1,'2024-02-01 16:23:36','2024-02-01 16:23:36'),
-	(8,'5% Tint',140,'D','minor',NULL,31,17,'samples/a9620b97-7431-417c-be47-3b0ddcb3bbfd_wav',1,'2024-02-01 16:46:24','2024-02-01 16:46:24'),
-	(9,'GFDGAF',40,'D','minor',NULL,31,15,'samples/7440ae75-b3a4-4ea0-8e76-e202021a783b_wav',1,'2024-02-01 16:54:25','2024-02-01 16:54:25'),
-	(10,'Vox RIP SCREW',100,'C#','major',NULL,1,9,'samples/f8beeb3b-e11a-4160-b0b5-60d2f1e83bd7_wav',1,'2024-02-02 07:37:55','2024-02-02 07:37:55'),
-	(11,'Moog Bass',89,'D','minor',NULL,18,15,'samples/3b9fd0e2-5bc5-47bd-b518-efaa4bc6cfc2_wav',1,'2024-02-02 07:39:01','2024-02-02 07:39:01'),
-	(14,'Riser FX2',125,'C#','minor',NULL,39,2,'samples/01b3aef7-3827-4ba4-b5d5-49a7389c6d15_wav',1,'2024-02-05 08:40:23','2024-02-05 11:08:31'),
-	(15,'instrumental',90,'F','major',NULL,35,2,'samples/9cf3c551-51ea-4d3e-9f0f-aee8190ece04_wav',1,'2024-02-05 18:28:42','2024-02-05 18:28:42'),
-	(16,'dsfgddsfg',58,'C#','major',NULL,31,15,'samples/5b4bd779-2ae3-4951-a578-e8feed01c02a_wav',1,'2024-02-05 18:58:02','2024-02-05 18:58:02'),
-	(17,'Pharaoleee',96,'C#','minor',NULL,43,5,'samples/afbc9c31-fee8-4c1e-96e2-1bc44a21137e_mp3',2,'2024-02-06 07:38:53','2024-02-06 07:38:53'),
-	(18,'Test Samples',125,'A','major',NULL,36,4,'samples/cddc9775-4be1-4c8b-b2da-a1984800078c_mp3',5,'2024-02-06 08:27:36','2024-02-06 08:27:36'),
-	(19,'dsafdsfsd',87,'G','minor',NULL,39,21,'samples/be84c468-e785-43c6-9e63-0a61dfe5a76e_mp3',5,'2024-02-06 08:54:39','2024-02-06 08:54:39'),
-	(20,'fdsghasfdhg',89,'D','minor',NULL,31,17,'samples/f562f6bd-8e7f-4921-bfde-ea0a386786b3_wav',5,'2024-02-06 09:14:00','2024-02-06 09:14:00'),
-	(21,'Hello Cooper',89,'D','minor',NULL,39,11,'samples/876d7b24-4659-4f23-a19e-4420ddcb1767_mp3',1,'2024-02-08 10:46:52','2024-02-08 10:46:52'),
-	(22,'jkojmolk',189,'C#','minor',NULL,14,2,'samples/ccd56a51-4195-41d7-863e-9b77a4d1c9ba_mp3',1,'2024-02-11 15:28:15','2024-02-11 15:28:15'),
-	(26,'Wollen lieben',40,'D','major',NULL,8,21,'samples/3d2e4bf6-112a-475f-9e8d-5d572dd4b772_mp3',2,'2024-02-12 19:31:16','2024-02-12 19:37:57'),
-	(28,'dshfjkdsfg',56,'D','major',NULL,17,8,'samples/e442cf2d-4f0c-425d-9048-dc0d970250ae_mp3',6,'2024-02-13 14:07:51','2024-02-13 14:07:51'),
-	(29,'DM ist teurer als Rossmann',120,'C#','major',NULL,20,21,'samples/66c0e004-fce7-4cf4-ae3e-04ecb433c30a_wav',6,'2024-02-13 17:36:25','2024-02-13 17:36:25'),
-	(31,'Certified Hood Classic',79,'C','major',NULL,1,9,'samples/1fe043d8-bf05-4356-8cd0-edb5957262bb_wav',1,'2024-02-19 13:14:10','2024-02-19 13:14:10'),
-	(32,'Dj Dropz',89,'D','minor',NULL,22,17,'samples/d2d102c2-65b2-4680-ab34-3371a041a000_wav',1,'2024-02-19 13:26:29','2024-02-19 13:26:29'),
-	(33,'fdgsgdfg',156,'C#','minor',NULL,24,2,'samples/2c5e99e0-641d-4b92-bd79-31be21a4039f_wav',1,'2024-02-19 13:34:07','2024-02-19 13:34:07'),
-	(35,'sdgDSGFFD',84,'C','minor',NULL,17,13,'samples/2a423063-3507-4c38-9a10-dafed837accd_wav',1,'2024-02-21 11:47:59','2024-02-21 11:47:59'),
-	(36,'grfdfgfg',65,'C#','minor',NULL,22,17,'samples/794703c6-d5a3-4f6e-9033-f36be431cc0c_wav',1,'2024-02-21 16:09:06','2024-02-21 16:09:06');
+	(46,'Bumbum 90',90,'C','major',NULL,24,13,'samples/441b746d-ca63-4036-9239-67f5a48d127e.wav',5,'2024-02-25 16:43:37','2024-02-25 16:43:37'),
+	(47,'Vocals Falco',89,'G','minor',NULL,11,2,'samples/8b9a2328-eb55-48b6-9f68-cbe83014c62f.mp3',5,'2024-02-25 16:44:48','2024-02-25 16:44:48'),
+	(48,'forgotten riff',126,'D','minor',NULL,22,17,'samples/72e00a34-3ec0-4f2c-b351-517c5293a72e.wav',5,'2024-02-25 16:45:12','2024-02-25 16:45:12'),
+	(49,'Hi hats one shot',151,'D','minor',NULL,32,14,'samples/5745ea59-7689-4905-b335-d47632ca68dd.wav',1,'2024-02-25 16:46:10','2024-02-25 16:46:10'),
+	(50,'swum hi hat one shot',153,'C#','minor',NULL,24,1,'samples/96c2c745-a9f7-4ad5-949b-11f97ffdc005.wav',1,'2024-02-25 16:46:49','2024-02-25 16:46:49'),
+	(51,'housinger',154,'D','minor',NULL,36,12,'samples/cdaad869-2546-4f06-87c2-ee22f0dc08b9.wav',1,'2024-02-25 16:47:25','2024-02-25 17:00:25');
 
 /*!40000 ALTER TABLE `samples` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -520,8 +451,7 @@ VALUES
 	(3,'Hello123','test@test.de','$2y$10$9ApGdJ4esYF2Cy22UCt9Lu3FcnA2Cl.bWITy11bp8cegEELc/VYzC',0,'2024-02-03 14:20:02','2024-02-03 14:23:55','profile_pictures/d7fb315a-3cdc-405b-8e4d-891100555feb.jpg',NULL),
 	(4,'TestAcc','testacc@hotmail.de','$2y$10$B5vktXGR5IxijGAczHzUMuoEjbxWGfka4aV3Id7gKa4X7CkVucW1u',0,'2024-02-04 07:55:06','2024-02-04 07:55:06',NULL,NULL),
 	(5,'Test-Producer','testacc@hotmail.com','$2y$10$Gwedfi/UDLP4ExgE7.xfmueKOyrR.ZvH3xhMA2ogmJ7Of1dBJCU4a',0,'2024-02-06 08:26:51','2024-02-06 09:19:40','profile_pictures/9c76892d-1b54-45b0-9224-ca9f3fccb2c5.png',NULL),
-	(6,'MörekBeats','mörekbeats@gmail.com','$2y$10$rgZfPVGmzcXWwoWaGtlZQOIipSoeIX40Yw.YrrXySXX2B8wIFykWe',0,'2024-02-13 13:42:26','2024-02-13 14:09:43','profile_pictures/f01c6c31-214f-49cf-a5b6-eedbedc1a6b1.jpg',NULL),
-	(17,'testuser','testuser@test.de','$2y$10$KeLGF.Bez0VX6CFFr3XraOw3M1hWxlVMaGdkS8LOxwbrTcME0SU9W',0,'2024-02-25 12:21:59','2024-02-25 12:21:59',NULL,NULL);
+	(17,'testuser','testuser@test.de','$2y$10$KeLGF.Bez0VX6CFFr3XraOw3M1hWxlVMaGdkS8LOxwbrTcME0SU9W',0,'2024-02-25 12:21:59','2024-02-25 14:58:10','profile_pictures/c8f7e59d-499b-48d3-87cf-79ecdf22f262.jpg',NULL);
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

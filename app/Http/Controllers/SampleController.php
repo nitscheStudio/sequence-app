@@ -102,8 +102,8 @@ class SampleController extends Controller
         }
 
          // Delete the associated file from storage
-        if (Storage::disk('local')->exists($sample->file_path)) {
-            Storage::disk('local')->delete($sample->file_path);
+        if (Storage::disk('public')->exists($sample->file_path)) {
+            Storage::disk('public')->delete($sample->file_path);
         }
 
         $sample->delete();

@@ -57,9 +57,16 @@ class UploadController extends Controller
         try {
             if ($request->hasFile('sample_file')) {
                 //renaming file
-                $fileName = Str::uuid() . '_' . $request->file('sample_file')->getClientOriginalExtension();
-        
-                $path = $request->file('sample_file')->storeAs('samples', $fileName, 'public');
+              // Generate a unique file name using UUID and retain the original extension
+                $originalFileName = $request->file('sample_file')->getClientOriginalName();
+                $fileExtension = $request->file('sample_file')->getClientOriginalExtension();
+                $fileName = Str::uuid() . '.' . $fileExtension;
+
+                // Ensure the file name is properly generated
+                Log::info('Generated file name:', [$fileName]);
+
+                // Store the file with the generated name
+                $path = $request->file('sample_file')->storeAs('samples', $fileName, 'public'); 
 
                
                 
